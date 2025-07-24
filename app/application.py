@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from pages.main_page import MainPage
+from pages.navigation_filter_page import NavigationFilterPage
 from pages.sign_in_page import SignInPage
 
 
