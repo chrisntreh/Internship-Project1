@@ -6,7 +6,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from pages.base_page import BasePage
 
 class NavigationFilterPage(BasePage):
-    SECONDARY_MENU_LOCATOR = (By.XPATH, "//a[@href='/secondary-listings']")
+    #SECONDARY_MENU_LOCATOR = (By.XPATH, "//a[@href='/secondary-listings']")
+    SECONDARY_MENU_LOCATOR = (By.CSS_SELECTOR, 'a[class*="menu-button-block"][href="/secondary-listings"]')
     VERIFY_THE_RIGHT_PAGE_OPEN_LOCATOR = (By.XPATH, "//div[@class='verified-section']")
     FILTER_BUTTON_LOCATOR = (By.XPATH, "//div[@class='filter-text']")
     WANT_TO_BUY_CHECKBOX_LOCATOR = (By.XPATH, "//div[@wized='ListingTypeBuy']")
@@ -14,15 +15,18 @@ class NavigationFilterPage(BasePage):
     DEAL_CARDS_LOCATOR = (By.XPATH, "//div[@wized='saleTagBoxMLS']")
 
     def go_to_secondary_menu(self):
+        sleep(30)
         self.click(*self.SECONDARY_MENU_LOCATOR)
+        sleep(5)
 
     def verify_the_right_page(self):
+        sleep(10)
         url = self.driver.current_url
         assert url == 'https://soft.reelly.io/secondary-listings'
 
 
     def open_filters(self):
-        sleep(3)
+        sleep(5)
         self.click(*self.FILTER_BUTTON_LOCATOR)
 
     def select_want_to_buy(self):
