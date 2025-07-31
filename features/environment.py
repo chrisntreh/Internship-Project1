@@ -18,8 +18,7 @@ def browser_init(context, scenario_name):
     #
     # context.driver = webdriver.Chrome(service=service, options=options)
 
-
-
+    # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/reelly_internship_test.feature
 
     # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
@@ -38,7 +37,7 @@ def browser_init(context, scenario_name):
         'os' : 'OS X',
         'osVersion' : 'Sonoma',
         'browserName': 'chrome',
-        'sessionName' : scenario_name,
+        'sessionName' : 'scenario_name',
     }
 
     options.set_capability('bstack:options', bstack_options)
