@@ -15,15 +15,17 @@ class SignInPage(BasePage):
 
 
     def enter_email(self):
+        sleep(2)
         self.input_text(self.EMAIL, *self.EMAIL_LOCATOR)
 
     def enter_password(self):
+        sleep(2)
         self.input_text(self.PASSWORD, *self.PASSWORD_LOCATOR)
 
     def click_continue(self):
+        sleep(3)
         self.click(*self.CONTINUE_BUTTON_LOCATOR)
-        sleep(10)
 
     def click_off_plan(self):
-        sleep(10)
+        sleep(3)
         self.click(*self.OFF_PLAN)

@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from app.application import Application
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
 
 def browser_init(context, scenario_name):
     """
@@ -24,11 +25,27 @@ def browser_init(context, scenario_name):
     # service = Service(driver_path)
     # context.driver = webdriver.Chrome(service=service)
 
-    mobile_emulation = {"deviceName": "Nexus 5"}
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-    service = Service(ChromeDriverManager().install())
-    context.driver = webdriver.Chrome(service=service, options=chrome_options)
+    # mobile_emulation = {"deviceName": "Nexus 5"}
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # service = Service(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(service=service, options=chrome_options)
+
+    bs_user = 'christopherntreh_lzwbTy'
+    bs_key = 'oPTxGiAq26rkyw4T4CwF'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        # 'deviceName': 'Samsung Galaxy S22 Ultra',  # Replace with desired device
+        'deviceName': 'iPhone 13',
+        'platformName': 'iOS',  # Or 'iOS'
+        'browserName': 'Chrome',  # Mobile Chrome browser
+        'sessionName': scenario_name,
+        'interactiveDebugging': True
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
 
 
 
