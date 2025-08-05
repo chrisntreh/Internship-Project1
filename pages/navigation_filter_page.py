@@ -7,12 +7,13 @@ from pages.base_page import BasePage
 
 class NavigationFilterPage(BasePage):
     #SECONDARY_MENU_LOCATOR = (By.XPATH, "//a[@href='/secondary-listings']")
-    SECONDARY_MENU_LOCATOR = (By.CSS_SELECTOR, 'a[class*="menu-button-block"][href="/secondary-listings"]')
+    # SECONDARY_MENU_LOCATOR = (By.CSS_SELECTOR, 'a[class*="menu-button-block"][href="/secondary-listings"]')
     VERIFY_THE_RIGHT_PAGE_OPEN_LOCATOR = (By.XPATH, "//div[@class='verified-section']")
     FILTER_BUTTON_LOCATOR = (By.XPATH, "//div[@class='filter-text']")
     WANT_TO_BUY_CHECKBOX_LOCATOR = (By.XPATH, "//div[@wized='ListingTypeBuy']")
     APPLY_FILTER_BUTTON_LOCATOR = (By.XPATH, "//a[@class='button-filter w-button']")
     DEAL_CARDS_LOCATOR = (By.XPATH, "//div[@wized='saleTagBoxMLS']")
+    SECONDARY_MENU_LOCATOR = (By.XPATH, "//button[@class='pb-5 text-sm font-semibold transition-all border-b-2 border-transparent whitespace-nowrap text-muted-foreground']")
 
     def go_to_secondary_menu(self):
         sleep(30)

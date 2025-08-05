@@ -11,6 +11,9 @@ class SignInPage(BasePage):
     CONTINUE_BUTTON_LOCATOR = (By.XPATH, "//a[@class='login-button w-button']")
     EMAIL = "ntrehchris@gmail.com"
     PASSWORD = "313102@Ckn33"
+    OFF_PLAN = (By.CSS_SELECTOR, 'div[wized*="mobileMenu"] a[wized="newOffPlanLink"]')
+
+
     def enter_email(self):
         self.input_text(self.EMAIL, *self.EMAIL_LOCATOR)
 
@@ -20,3 +23,7 @@ class SignInPage(BasePage):
     def click_continue(self):
         self.click(*self.CONTINUE_BUTTON_LOCATOR)
         sleep(10)
+
+    def click_off_plan(self):
+        sleep(10)
+        self.click(*self.OFF_PLAN)

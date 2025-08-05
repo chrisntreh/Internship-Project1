@@ -17,6 +17,11 @@ def sign_in_page(context):
     context.app.sign_in_page.click_continue()
 
 
+@when('user Click off_plan on bottom left')
+def click_off_plan(context):
+    context.app.sign_in_page.click_off_plan()
+
+
 @when('user Click on the Secondary to the left')
 def go_to_secondary_menu(context):
     context.app.navigation_filter_page.go_to_secondary_menu()
